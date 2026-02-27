@@ -133,6 +133,8 @@ python3 compare.py --models flagship-models --output results/full_eval
 
 ## 📈 Metrics
 
+## 📈 Metrics
+
 Every report includes:
 
 - **Accuracy/Quality Score** — Exact Match, Regex, JSON Schema, LLM-as-a-Judge
@@ -140,7 +142,27 @@ Every report includes:
 - **Cost** — Estimated USD per model from token usage
 - **Category Breakdown** — Side-by-side per-category comparison
 
----
+## 📊 Sample Results
+
+From a recent benchmark run (2026-02-27):
+
+### Executive Summary
+| model_name                  |   Avg Score |   Avg Latency (ms) |   Total Cost (USD) |   Success Rate (%) |
+|:----------------------------|------------:|-------------------:|-------------------:|-------------------:|
+| anthropic/claude-opus-4.6   |      0.865  |            24373.7 |             0      |                100 |
+| anthropic/claude-sonnet-4.5 |      0.8835 |            22262.4 |             0      |                100 |
+| google/gemini-3-pro-preview |      0.8585 |            19694.6 |             0      |                100 |
+| openai/gpt-5.1              |      0.8835 |            15005.5 |             0      |                100 |
+| z-ai/glm-5                  |      0.9085 |            67209.4 |             0.0879 |                100 |
+
+### Performance by Category (Coding)
+| model_name                  |   coding |
+|:----------------------------|---------:|
+| anthropic/claude-opus-4.6   |    0.865 |
+| anthropic/claude-sonnet-4.5 |    0.884 |
+| google/gemini-3-pro-preview |    0.858 |
+| openai/gpt-5.1              |    0.884 |
+| z-ai/glm-5                  |    0.909 |
 
 ## 📁 Project Structure
 ```
