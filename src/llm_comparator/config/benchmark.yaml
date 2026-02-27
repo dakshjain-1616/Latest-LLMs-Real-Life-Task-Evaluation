@@ -1,0 +1,6 @@
+benchmark:
+  judge_config:
+    model: "openai/gpt-4o-mini"
+    provider: "openrouter"
+    temperature: 0.1
+    use_chain_of_thought: true
