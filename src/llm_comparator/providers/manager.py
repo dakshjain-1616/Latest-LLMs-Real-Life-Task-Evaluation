@@ -8,6 +8,9 @@ from dataclasses import dataclass
 import yaml
 from openai import AsyncOpenAI
 import httpx
+from dotenv import load_dotenv
+
+load_dotenv()
 
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
@@ -57,8 +60,19 @@ class ProviderManager:
             api_key = os.getenv("OPENAI_API_KEY")
             client = AsyncOpenAI(api_key=api_key)
         elif provider == "openrouter":
-            api_key = os.getenv("OPENROUTER_API_KEY")
-            client = AsyncOpenAI(api_key=api_key, base_url="https://openrouter.ai/api/v1")
+            api_key = os.getenv("OPENROUTER_API_KEY", "").strip()
+            if not api_key:
+                logger.warning("OPENROUTER_API_KEY not found in environment.")
+            
+            client = AsyncOpenAI(
+                api_key=api_key,
+                base_url="https://openrouter.ai/api/v1",
+                default_headers={
+                    "HTTP-Referer": "https://github.com/dakshjain-1616/Latest-LLMs-Real-Life-Task-Evaluation",
+                    "X-Title": "LLM Comparison Tool",
+                }
+            )
+
         elif provider == "google":
             api_key = os.getenv("GOOGLE_API_KEY")
             # Using Google's OpenAI-compatible endpoint

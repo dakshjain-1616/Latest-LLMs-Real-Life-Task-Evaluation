@@ -71,7 +71,6 @@ cp .env.example .env
 
 ### Supported API Keys
 
-### Supported API Keys
 
 | Key | Provider |
 |-----|----------|
@@ -130,8 +129,6 @@ python3 compare.py --models flagship-models --output results/full_eval
 ```
 
 ---
-
-## 📈 Metrics
 
 ## 📈 Metrics
 
